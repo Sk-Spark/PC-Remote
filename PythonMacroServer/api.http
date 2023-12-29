@@ -1,0 +1,11 @@
+// POST requesta
+POST http://localhost:5000/press-key
+Content-Type: application/json
+
+{
+    "macro": "a"
+}
+
+######################a
+// GET request
+GET http://localhost:5000/press-key?macro=a
