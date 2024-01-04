@@ -25,6 +25,9 @@ def trun_off_numlock():
 def serve_index():
     return send_from_directory(os.path.dirname(os.path.realpath(__file__)), 'index.html')
 
+@app.route('/api/test', methods=['GET'])
+def test():
+    return jsonify({"status": "success", "message": "Server is up and running"})
 
 @app.route('/press-key', methods=['GET', 'POST'])
 def press_key():

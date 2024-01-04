@@ -9,13 +9,13 @@
     "web": "expo start --web",
     "link": "react-native link react-native-zeroconf",
     "tmp": "expo install expo-av",
-    "eject":"expo eject"
+    "eject": "expo eject"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
     "axios": "^1.6.3",
     "expo": "~49.0.15",
-    "expo-permissions": "^14.4.0",
+    "expo-permissions": "~14.2.1",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

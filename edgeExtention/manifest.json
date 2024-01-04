@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Key Press Detector",
+    "version": "1.0",
+    "description": "Detects which keyboard button is pressed and shows an alert.",
+    "permissions": [
+      "activeTab"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "48": "icon.png"  // Add your icon file and adjust the size
+    }
+  }
+  

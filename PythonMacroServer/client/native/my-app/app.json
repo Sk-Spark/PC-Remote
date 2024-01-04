@@ -30,7 +30,8 @@
         "WRITE_EXTERNAL_STORAGE",
         "ACCESS_NETWORK_STATE",
         "ACCESS_WIFI_STATE",
-        "CHANGE_WIFI_MULTICAST_STATE"
+        "CHANGE_WIFI_MULTICAST_STATE",
+        "INTERNET"
       ]
     },
     "web": {
