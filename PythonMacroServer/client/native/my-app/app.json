@@ -42,5 +42,15 @@
         "projectId": "374d0895-bf46-4f85-92d6-e8a45a55de06"
       }
     }
-  }
+  },
+  "plugins": [
+    [
+      "expo-build-properties",
+      {
+        "android": {
+          "usesCleartextTraffic": true
+        }
+      }
+    ]
+  ]
 }

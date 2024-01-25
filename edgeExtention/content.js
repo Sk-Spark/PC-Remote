@@ -69,5 +69,23 @@ document.addEventListener("keydown", function (event) {
       subtitleIsVisible = true;
     }
   }
+  else if(event.key === "g" || event.key === "G"){
+    let skipBtn = document.querySelector('button[data-uia="player-skip-intro"]');
+    if(skipBtn){
+      skipBtn.click();
+      console.log("Skip button clicked");
+    }
+    else{
+      console.log("No skip button found");
+    }
+    // console.log("Switching subtitle status");
+    // if(subtitleIsVisible){
+    //   setSubtitleDisplayStyle("none");
+    //   subtitleIsVisible = false;
+    // }else{
+    //   setSubtitleDisplayStyle("block");
+    //   subtitleIsVisible = true;
+    // }
+  }
 
 });

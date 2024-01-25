@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import pyautogui
 import keyboard
 import os
 from time import sleep
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all origins
 
 # Disable the failsafe feature of pyautogui
 pyautogui.FAILSAFE = False
@@ -19,6 +21,15 @@ def trun_off_numlock():
         print('Num Lock is on. Turning it off...')
         keyboard.press_and_release('num lock')
         sleep(0.5)
+
+# CORS Headers for allowing cross origin requests
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,true')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST')
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 
 
 @app.route('/', methods=['GET'])

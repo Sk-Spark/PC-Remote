@@ -18,6 +18,7 @@ export default function App() {
 
   const [urlScanning, setUrlScanning] = useState({ current: '' } as any);
   const [text, setText] = useState(''  as any);
+  const apiCallStatus = useRef('' as any);
 
   const activeIPS: string[] = [];
 
@@ -95,15 +96,33 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetch('http://192.168.29.160:5000/api/test')
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response=> response.json())
     .then(json =>{
-      console.log('json data:', json);
-      setText(JSON.stringify(json));
+      console.log('https :: json data:', json);
+      setText(text + '\nhttps: '+JSON.stringify(json));
+      apiCallStatus.current = apiCallStatus.current + '\nhttps: '+JSON.stringify(json);
     })
     .catch((error) => {
       console.log('error:', error);
-      setText('Error:'+error.message);
+      setText(text +'\nhttps Error:'+error.message);
+      apiCallStatus.current = apiCallStatus.current + '\nhttps Error: '+JSON.stringify(error.message);
+
+    });
+
+    fetch('http://192.168.137.1:5000/api/test')
+    .then(response=> response.json())
+    .then(json =>{
+      console.log('json data:', json);
+      setText(text +'\nhttp: '+JSON.stringify(json));
+      apiCallStatus.current = apiCallStatus.current + '\nhttp: '+JSON.stringify(json);
+
+    })
+    .catch((error) => {
+      console.log('error:', error);
+      setText(text +'\nhttp Error:'+error.message);
+      apiCallStatus.current = apiCallStatus.current + '\nhttp: '+JSON.stringify(error.message);
+
     });
   }, []);
 
@@ -131,7 +150,7 @@ export default function App() {
         </View>
       ))}
       <View>
-        <Text>{text}</Text>
+        <Text>{apiCallStatus.current}</Text>
       </View>
       {true && <View style={{ margin: 10, display: 'flex', alignItems: 'center' }}>
         <Text>{`Scaning ...`}</Text>
