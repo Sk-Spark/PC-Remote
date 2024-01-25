@@ -77,15 +77,7 @@ document.addEventListener("keydown", function (event) {
     }
     else{
       console.log("No skip button found");
-    }
-    // console.log("Switching subtitle status");
-    // if(subtitleIsVisible){
-    //   setSubtitleDisplayStyle("none");
-    //   subtitleIsVisible = false;
-    // }else{
-    //   setSubtitleDisplayStyle("block");
-    //   subtitleIsVisible = true;
-    // }
+    }   
   }
 
 });
