@@ -48,6 +48,7 @@ class SubtitleControl {
 }
 
 let subtitleIsVisible = true;
+
 const subtitleElement = '.player-timedtext';
 const styleElement = document.createElement('style');
 document.head.appendChild(styleElement);
@@ -78,6 +79,23 @@ document.addEventListener("keydown", function (event) {
     else{
       console.log("No skip button found");
     }   
+  }
+  else if(event.key === "u" || event.key === "U"){
+    let vedio = document.getElementsByTagName('video');
+    if(vedio.length > 0){
+      vedio[0].playbackRate += 0.25;
+      console.log("Vedio playback rate increased to : ",vedio[0].playbackRate);
+    }
+  }
+  else if(event.key === "d" || event.key === "D"){
+    let vedio = document.getElementsByTagName('video');
+    if(vedio.length > 0){
+      vedio[0].playbackRate -= 0.25;
+      console.log("Vedio playback rate decreased to : ",vedio[0].playbackRate);
+    }
+  }
+  else{
+    console.log("Key not recognized !!! Key Pressed: " + event.key);
   }
 
 });
